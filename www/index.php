@@ -5,6 +5,8 @@ require __DIR__ . '/../vendor/autoload.php';
 use \App\Core\NotFound;
 use \App\Core\Bootstrap;
 
+define('TEMPLATE_DIR', realpath(__DIR__.'/../src/views'));
+
 $app = new Bootstrap();
 
 try {
