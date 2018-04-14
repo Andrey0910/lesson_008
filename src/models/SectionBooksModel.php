@@ -43,19 +43,22 @@ class SectionBooksModel
         return $sectionBooks;
     }
 
-    public function update($id, $sectionName){
+    public function update($id, $sectionName)
+    {
         $sectionBooks = SectionBooks::find($id);
         $sectionBooks->section_name = $sectionName;
         $sectionBooks->save();
         return 'Обновленик успешно.';
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         SectionBooks::destroy($id);
         return 'Объект удален';
     }
 
-    public function add($sectionName){
+    public function add($sectionName)
+    {
         $sectionBooks = new SectionBooks();
         $sectionBooks->section_name = $sectionName;
         $sectionBooks->save();

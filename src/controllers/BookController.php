@@ -7,6 +7,7 @@ use App\Models\BooksModel;
 class BookController extends MainController
 {
     protected $nameView = 'BooksView';
+
     public function update()
     {
         $booksModel = new BooksModel();
@@ -45,13 +46,12 @@ class BookController extends MainController
 
     public function index()
     {
-        //$data['method'] = __METHOD__;
         $booksModel = new BooksModel();
         $id = $_REQUEST['id'];
         if (!empty($id)) {
             $data['books'] = $booksModel->getBook($id);
             $this->view->render($this->nameView, $data);
-            exit();
+            return;
         }
         $data['books'] = $booksModel->getAll();
         $this->view->render($this->nameView, $data);

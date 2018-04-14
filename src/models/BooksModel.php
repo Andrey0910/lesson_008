@@ -43,7 +43,8 @@ class BooksModel
         return $book;
     }
 
-    public function update($id, $data){
+    public function update($id, $data)
+    {
         $book = Book::find($id);
         $book->section_id = $data['sectionId'];
         $book->book_name = $data['bookName'];
@@ -53,12 +54,14 @@ class BooksModel
         return 'Обновленик успешно.';
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         Book::destroy($id);
         return 'Объект удален';
     }
 
-    public function add($data){
+    public function add($data)
+    {
         $book = new Book();
         $book->section_id = $data['sectionId'];
         $book->book_name = $data['bookName'];

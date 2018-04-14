@@ -7,6 +7,7 @@ use App\Models\SectionBooksModel;
 class SectionBooksController extends MainController
 {
     protected $nameView = 'BooksView';
+
     public function update()
     {
         $sectionBooksModel = new SectionBooksModel();
@@ -15,6 +16,7 @@ class SectionBooksController extends MainController
         $data['update'] = $sectionBooksModel->update($id, $sectionName);
         $this->view->render($this->nameView, $data);
     }
+
     public function delete()
     {
         $sectionBooksModel = new SectionBooksModel();
@@ -22,6 +24,7 @@ class SectionBooksController extends MainController
         $data['delete'] = $sectionBooksModel->delete($id);
         $this->view->render($this->nameView, $data);
     }
+
     public function add()
     {
         $sectionBooksModel = new SectionBooksModel();
@@ -30,6 +33,7 @@ class SectionBooksController extends MainController
         $this->view->render($this->nameView, $data);
 
     }
+
     public function index()
     {
         $sectionBooksModel = new SectionBooksModel();
@@ -37,7 +41,7 @@ class SectionBooksController extends MainController
         if (!empty($id)) {
             $data['sectionBooks'] = $sectionBooksModel->getBook($id);
             $this->view->render($this->nameView, $data);
-            exit();
+            return;
         }
         $data['sectionBooks'] = $sectionBooksModel->getAll();
         $this->view->render($this->nameView, $data);
